@@ -1,6 +1,6 @@
 # chadocs
 
-Easily search through various documents produced by local government.
+Easily search through various documents produced by Chattanooga and Hamilton County.
 
 # License
 
