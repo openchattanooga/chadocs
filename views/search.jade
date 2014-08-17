@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .container
+    include ./includes/searchbar.jade
+  #query_info
+    #result_head
+      h3 Results
+    #query_head
+      p
+       | Your query: 
+       em= query
+
+  if results.length == 0
+    .container
+      p No results. Please try again!
+  else 
+    each result in results
+      .container
+        .result
+          .excerpt
+            ul.default
+              each highlighted in result.highlight.content
+                li!= highlighted.replace(/(\r\n|\n|\r)/gm,"")
+          .source 
+            strong= result.fields.title
+            br
+            a(href=result.fields.original_source_url) Source

@@ -1,0 +1,64 @@
+@import "vendor/bourbon/bourbon";
+@import "vendor/neat/neat";
+@import "base/base";
+
+$query-highlight: #87ceeb;
+$result-background: #f7f7f7;
+
+header {
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+footer {
+  text-align: right;
+}
+
+.container {
+  @include outer-container;
+}
+
+.result {
+  @include outer-container;
+  margin-bottom: 3em;
+  padding: 1em 1em 1em 1em;
+  background-color: $result-background;
+  border: 1px solid #ddd;
+
+  .excerpt {
+    @include span-columns(8);    
+
+    ul {
+      li {
+        margin-bottom: 1em;
+        em {
+         background-color: $query-highlight;
+        }
+      }
+    }
+  }
+
+  .source {
+    @include span-columns(4);    
+  }
+
+}
+
+#blurb {
+  text-align: center;
+}
+
+#result_head{
+  @include span-columns(6);
+}
+
+#query_head{
+  @include span-columns(6);
+  text-align: right;
+}
+
+#query_info{
+  @extend .container;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}

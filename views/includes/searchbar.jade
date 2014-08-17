@@ -1,0 +1,7 @@
+#blurb
+  p Easily search through various documents produced by local government.
+fieldset
+  form(action='/search' method='get')
+    input#query(name='q', type='search', autocomplete='off', placeholder='Enter search')
+    input.button(type='submit', value='Submit')
+    
