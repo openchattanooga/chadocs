@@ -30,7 +30,7 @@ function query(q) {
              size: 50,
              sort: {
                _score: {
-                 order: "asc"
+                 order: "desc"
                }
              },
            }
