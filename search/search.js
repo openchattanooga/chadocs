@@ -11,8 +11,8 @@ function query(q) {
              query: {
                filtered: {
                  query: {
-                   query_string: {
-                     query: q
+                   match: {
+                     content: q
                    }
                  }
                }
