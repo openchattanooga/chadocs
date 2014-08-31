@@ -2,6 +2,18 @@
 @import "vendor/bourbon/bourbon";
 @import "vendor/neat/neat";
 @import "base/base";
+@import "vendor/neat/neat-helpers";
+
+$medium-screen: em(640);
+$large-screen: em(860);
+
+$medium-screen-up: new-breakpoint(min-width $medium-screen 4);
+$large-screen-up: new-breakpoint(min-width $large-screen 8);
+
+$base-spacing: 2em;
+
+/* Partials */
+@import "partials/pagination";
 
 $query-highlight: #87ceeb;
 $result-background: #f7f7f7;
@@ -61,5 +73,10 @@ footer {
 #query_info{
   @extend .container;
   padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+#pagination_container {
+  @extend .container;
   padding-bottom: 1em;
 }

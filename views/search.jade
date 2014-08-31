@@ -26,3 +26,22 @@ block content
             strong= result.fields.title
             br
             a(href=result.fields.original_source_url) Source
+  #pagination_container
+    .pagination
+      ul
+        if currentPage > 1
+          li.page-prev
+            a(href='/search?q=' + query + '&page=' + (currentPage - 1)) Prev
+        li
+          ul
+            - var i = 1
+            while i <= pages + 1
+              li
+                if i == currentPage
+                  a.current-page(href='/search?q=' + query + '&page=' + i)= i++
+                else
+                  a(href='/search?q=' + query + '&page=' + i)= i++
+        if currentPage < pages
+          li.page-next
+            a(href='/search?q=' + query + '&page=' + (currentPage + 1)) Next
+

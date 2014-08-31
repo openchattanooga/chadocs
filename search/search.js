@@ -3,10 +3,18 @@ var client = new elasticsearch.Client({
   host: process.env.ELASTICSEARCH,
 });
 
-function query(q) {
+var PAGE = 10;
+
+function pageToFrom(p) {
+  return p * 10;
+}
+
+function query(q, page) {
   return client.search({
            index: 'chadocs',
            type: 'document',
+             from: pageToFrom(page),
+             size: PAGE,
            body: {
              query: {
                filtered: {
@@ -39,3 +47,4 @@ function query(q) {
 }
 
 exports.query = query;
+exports.PAGE = PAGE;
