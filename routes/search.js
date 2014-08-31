@@ -22,7 +22,7 @@ router.get('/', function(req, res) {
     res.render('search', { title: 'chadocs', results: [], query: query });
   } else {
     search.query(query, page - 1).then(function (resp) {
-      res.render('search', { title: 'chadocs', results: resp.hits.hits, query: query, pages: totalPages(resp.hits.total), currentPage: page });
+      res.render('search', { title: 'chadocs', results: resp.hits.hits, query: query, pages: totalPages(resp.hits.total), currentPage: page});
 
     }, function (err) {
       console.trace(err.message);

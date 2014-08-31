@@ -4,6 +4,8 @@ var client = new elasticsearch.Client({
 });
 
 var PAGE = 10;
+var INDEX = 'chadocs';
+var TYPE = 'document';
 
 function pageToFrom(p) {
   return p * 10;
@@ -11,8 +13,8 @@ function pageToFrom(p) {
 
 function query(q, page) {
   return client.search({
-           index: 'chadocs',
-           type: 'document',
+           index: INDEX,
+           type: TYPE,
              from: pageToFrom(page),
              size: PAGE,
            body: {
@@ -46,5 +48,15 @@ function query(q, page) {
          });
 }
 
+function getDocumentById(id) {
+  return client.get({
+    index: INDEX,
+    type: TYPE,
+    id: id,
+    fields: ['content', 'title']
+  });
+}
+
+exports.getDocumentById = getDocumentById;
 exports.query = query;
 exports.PAGE = PAGE;
