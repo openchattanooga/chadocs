@@ -23,11 +23,12 @@ block content
               each highlighted in result.highlight.content
                 li!= highlighted.replace(/(\r\n|\n|\r)/gm,"")
           .source 
-            strong= result.fields.title
+            strong= result.fields['meta.title']
             br
             a(href='/documents/' + result._id) View Full Text
             br
-            a(href=result.fields.original_source_url) Source
+            - var splitPath = result.fields['path.real'].split('/')
+            a(href=githubPath + splitPath[4] + '/' + splitPath[5]) Source
   #pagination_container
     .pagination
       ul

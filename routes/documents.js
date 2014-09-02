@@ -7,7 +7,7 @@ router.get('/:id', function(req, res) {
   var id = req.params.id;
 
   search.getDocumentById(id).then(function (resp) {
-    res.render('document', { title: 'chadocs', content: resp.fields.content, docTitle: resp.fields.title });
+    res.render('document', { title: 'chadocs', content: resp._source.content, docTitle: resp._source.meta.title });
 
   }, function (err) {
     res.render('document', { title: 'chadocs', content: 'Your document was not found.', docTitle: 'Not found!' });

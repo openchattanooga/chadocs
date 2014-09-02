@@ -34,7 +34,7 @@ function query(q, page) {
              },
              fields: [
                "title",
-               "original_source_url"
+               "real"
              ],
              from: 0,
              size: 50,
@@ -53,7 +53,7 @@ function getDocumentById(id) {
     index: INDEX,
     type: TYPE,
     id: id,
-    fields: ['content', 'title']
+    //fields: ['content', 'title']
   });
 }
 
